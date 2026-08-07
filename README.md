@@ -92,10 +92,6 @@ Proyek analisis **Big Data Management** yang berfokus pada perancangan arsitektu
   <p><i>Gambar 5: Rancangan Tampilan Antarmuka (UI) Dashboard Analisis Ulasan Pengguna Gojek</i></p>
 </div>
 
-🔗 **[Lihat Desain UI Dashboard Interaktif di Canva](https://canva.link/fiwt54ckqc642mh)**[cite: 2]
-
----
-
 ## 🛠️ Alat dan Teknologi
 
 * **Bahasa Pemrograman:** Python[cite: 2]
