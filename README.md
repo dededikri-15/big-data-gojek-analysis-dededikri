@@ -8,17 +8,17 @@ Proyek analisis **Big Data Management** yang berfokus pada perancangan arsitektu
 
 1. **Penyimpanan Terstruktur:** Menerapkan sistem penyimpanan data menggunakan MongoDB yang mampu menampung dan mengelola 50.000 media teks ulasan serta log transaksi pengguna Gojek secara terstruktur.
 2. **Analisis Pola Perilaku:** Menganalisis ulasan dan log transaksi untuk mengidentifikasi pola perilaku, kebutuhan, serta tingkat kepuasan pengguna.
-3. **Rancangan Arsitektur:** Merancang arsitektur dan diagram fungsional sistem Big Data Management yang ideal untuk pemrosesan data secara efektif.
+3. **Rancangan Arsitektur:** Merancang arsitektur dan diagram fungsional sistem Big Data Management yang ideal untuk pemrosesan data secara efektif[cite: 2].
 
 ---
 
 ## ⚡ Karakteristik Big Data (5V Implementation)
 
-- **Volume:** Mengelola kumpulan **50.000 data ulasan** pengguna aplikasi Gojek.
-- **Variety:** Terdiri dari data terstruktur dari _Log Transaksi_ (`score`, `appVersion`, `at`) dan data tidak terstruktur dari _Media Teks_ (`content`).
-- **Velocity:** Pengumpulan data ulasan otomatis dari server Google Play Store melalui proses _crawling_ bertahap secara cepat.
-- **Veracity:** Proses pembersihan (_Data Cleaning_) menggunakan Pandas untuk menjamin keakuratan dan keandalan data.
-- **Value:** Mengubah data mentah menjadi wawasan bisnis untuk peningkatan kualitas layanan Gojek.
+* **Volume:** Mengelola kumpulan **50.000 data ulasan** pengguna aplikasi Gojek[cite: 2].
+* **Variety:** Terdiri dari data terstruktur dari *Log Transaksi* (`score`, `appVersion`, `at`) dan data tidak terstruktur dari *Media Teks* (`content`)[cite: 2].
+* **Velocity:** Pengumpulan data ulasan otomatis dari server Google Play Store melalui proses *crawling* bertahap secara cepat[cite: 2].
+* **Veracity:** Proses pembersihan (*Data Cleaning*) menggunakan Pandas untuk menjamin keakuratan dan keandalan data[cite: 2].
+* **Value:** Mengubah data mentah menjadi wawasan bisnis untuk peningkatan kualitas layanan Gojek[cite: 2].
 
 ---
 
@@ -26,63 +26,84 @@ Proyek analisis **Big Data Management** yang berfokus pada perancangan arsitektu
 
 ### 1. Rancangan Arsitektur Big Data
 
-![Rancangan Arsitektur Big Data Management](arsitektur.png)
-<img width="630" height="762" alt="image" src="https://github.com/user-attachments/assets/2b3cf8ef-3a07-4e5e-a5ad-f705f8ed0245" />
-_Gambar 1: Rancangan Arsitektur Big Data Management_
+<div align="center">
+  <img width="630" alt="Rancangan Arsitektur Big Data Management" src="https://github.com/user-attachments/assets/2b3cf8ef-3a07-4e5e-a5ad-f705f8ed0245" />
+  <p><i>Gambar 1: Rancangan Arsitektur Big Data Management</i></p>
+</div>
+
+**Penjelasan Alur Arsitektur:**
+1. **Google Play Store (Ulasan Pengguna):** Sumber data utama yang menyediakan ulasan pengguna aplikasi Gojek beserta rating, timestamp, dan versi aplikasi[cite: 2].
+2. **Python + Google-Play-Scraper (Crawling):** Mengambil data ulasan secara otomatis dari server Google Play Store secara bertahap[cite: 2].
+3. **MongoDB (Data Storage):** Tempat penyimpanan utama berbasis NoSQL untuk menampung seluruh data mentah hasil crawling[cite: 2].
+4. **Pandas (Data Cleaning & Processing):** Membersihkan data dari nilai null dan duplikat ulasan[cite: 2].
+5. **cleaning_data.csv:** Dataset hasil pembersihan yang siap digunakan untuk analisis[cite: 2].
+6. **Power BI (Dashboard & Visualisasi Data):** Mengolah dataset bersih menjadi dasbor interaktif[cite: 2].
+7. **Informasi (Hasil Analisis):** Menghasilkan wawasan berupa distribusi rating, tren ulasan, dan kepuasan pengguna[cite: 2].
+
+---
 
 ### 2. Pengecekan Data pada MongoDB Compass
 
-![Memasukan File CSV Clean ke MongoDb](mongodb_compass.png)
-<img width="902" height="901" alt="image" src="https://github.com/user-attachments/assets/75d4755b-e044-4b81-bb80-c21359697fca" />
+<div align="center">
+  <img width="902" alt="Verifikasi Data MongoDB Compass" src="https://github.com/user-attachments/assets/75d4755b-e044-4b81-bb80-c21359697fca" />
+  <p><i>Gambar 2: Verifikasi 50.000 Data Bersih di MongoDB Compass</i></p>
+</div>
 
-_Gambar 2: Verifikasi 50.000 Data Bersih di MongoDB Compass_
+*Pengecekan koleksi `review_gojek_clean` pada database `proyek_big_data` melalui MongoDB Compass untuk memastikan 50.000 dokumen ulasan tersimpan terstruktur dengan atribut JSON lengkap (`reviewId`, `userName`, `content`, `score`, `appVersion`, dll)*[cite: 2].
+
+---
 
 ### 3. Diagram Fungsional Big Data
 
-![Diagram Fungsional Big Data Management](diagram_fungsional.png)
-<img width="485" height="779" alt="image" src="https://github.com/user-attachments/assets/7e4ad147-cb9e-4e03-b1ed-84092e79a920" />
+<div align="center">
+  <img width="485" alt="Diagram Fungsional Big Data Management" src="https://github.com/user-attachments/assets/7e4ad147-cb9e-4e03-b1ed-84092e79a920" />
+  <p><i>Gambar 3: Diagram Fungsional Big Data Management (Konsep 5V)</i></p>
+</div>
 
-_Gambar 3: Diagram Fungsional Big Data Management (Konsep 5V)_
+**Tahapan Fungsi Sistem:**
+* **Input (Velocity):** Mengambil 50.000 ulasan dari Play Store secara otomatis dan cepat[cite: 2].
+* **Penyimpanan (Volume):** Menampung data berskala besar ke dalam database NoSQL MongoDB[cite: 2].
+* **Pengolahan (Variety & Veracity):** Membersihkan ulasan kosong (`content`) dan duplikat (`reviewId`) menggunakan Pandas[cite: 2].
+* **Output (Value):** Menyajikan grafik visualisasi interaktif dan wawasan evaluasi layanan melalui Power BI[cite: 2].
 
 ---
 
 ## 📊 Analisis & Visualisasi Data (Power BI)
 
-![Dashboard Analisis Power BI](powerbi_dashboard.png)
-<img width="976" height="627" alt="image" src="https://github.com/user-attachments/assets/08fbb985-0a68-4014-b09a-5dc3be833d18" />
+<div align="center">
+  <img width="976" alt="Dashboard Analisis Power BI" src="https://github.com/user-attachments/assets/08fbb985-0a68-4014-b09a-5dc3be833d18" />
+  <p><i>Gambar 4: Dasbor Analisis Keseluruhan pada Power BI</i></p>
+</div>
 
-_Gambar 4: Dasbor Analisis Keseluruhan pada Power BI_
-
-**Fokus Analisis:**
-
-1. **Tingkat Kepuasan Pengguna (Skor Bintang):** Memetakan tingkat kepuasan pelanggan secara keseluruhan.
-2. **Tren Aktivitas Ulasan Pengguna:** Memantau fluktuasi jumlah ulasan dari waktu ke waktu.
-3. **Perbandingan Rata-Rata Kepuasan per Versi Aplikasi:** Mengevaluasi kualitas teknis dari setiap update aplikasi.
-4. **Volume Pergerakan Ulasan:** Visualisasi kepadatan interaksi pengguna.
-5. **Daftar Kontribusi Ulasan Pengguna:** Menunjukkan proporsi keterlibatan pengguna.
-6. **Ulasan Paling Bermanfaat:** Menyoroti opini pengguna yang memiliki `thumbsUpCount` tertinggi.
+**Fokus Visualisasi:**
+1. **Tingkat Kepuasan Pengguna (Skor Bintang):** Memetakan rasio ulasan positif (skor 5) dibandingkan ulasan negatif (skor 1)[cite: 2].
+2. **Tren Aktivitas Ulasan Pengguna:** Memantau fluktuasi jumlah ulasan pengguna dari waktu ke waktu[cite: 2].
+3. **Perbandingan Rata-Rata Kepuasan per Versi Aplikasi:** Mengevaluasi stabilitas teknis dari setiap update `appVersion`[cite: 2].
+4. **Volume Pergerakan Ulasan:** Visualisasi kepadatan data interaksi pengguna[cite: 2].
+5. **Daftar Kontribusi Ulasan Pengguna:** Menunjukkan tingkat keterlibatan pengguna dalam memberikan masukan[cite: 2].
+6. **Ulasan Paling Bermanfaat:** Menyoroti opini pengguna yang memiliki nilai `thumbsUpCount` tertinggi[cite: 2].
 
 ---
 
 ## 🎨 Rancangan Tampilan Antarmuka (UI Dashboard Canva)
 
-![Rancangan Tampilan UI Dashboard](ui_canva.png)
-<img width="1018" height="644" alt="image" src="https://github.com/user-attachments/assets/fbd6069c-ecea-4932-bef8-04c959c9f0bf" />
+<div align="center">
+  <img width="1018" alt="Rancangan Tampilan UI Dashboard" src="https://github.com/user-attachments/assets/fbd6069c-ecea-4932-bef8-04c959c9f0bf" />
+  <p><i>Gambar 5: Rancangan Tampilan Antarmuka (UI) Dashboard Analisis Ulasan Pengguna Gojek</i></p>
+</div>
 
-_Gambar 5: Rancangan Tampilan Antarmuka (UI) Dashboard Analisis Ulasan Pengguna Gojek_
-
-🔗 **[Lihat Desain UI Dashboard Interaktif di Canva](https://canva.link/fiwt54ckqc642mh)**
+🔗 **[Lihat Desain UI Dashboard Interaktif di Canva](https://canva.link/fiwt54ckqc642mh)**[cite: 2]
 
 ---
 
 ## 🛠️ Alat dan Teknologi
 
-- **Bahasa Pemrograman:** Python
-- **IDE:** Visual Studio Code (VS Code)
-- **Database (NoSQL):** MongoDB & PyMongo
-- **Library Processing:** Pandas & `google-play-scraper`
-- **Business Intelligence:** Power BI
-- **Diagram & UI Design:** Draw.io, Figma, & Canva
+* **Bahasa Pemrograman:** Python[cite: 2]
+* **IDE:** Visual Studio Code (VS Code)[cite: 2]
+* **Database (NoSQL):** MongoDB & PyMongo[cite: 2]
+* **Library Processing:** Pandas & `google-play-scraper`[cite: 2]
+* **Business Intelligence:** Power BI[cite: 2]
+* **Diagram & UI Design:** Draw.io, Figma, & Canva[cite: 2]
 
 ---
 
@@ -93,17 +114,12 @@ _Gambar 5: Rancangan Tampilan Antarmuka (UI) Dashboard Analisis Ulasan Pengguna 
 ├── database_connector.py    # Skrip koneksi penghubung Python ke MongoDB
 ├── data_processor.py        # Skrip pembersihan data (menghapus null & duplikat)
 ├── cleaning_data.csv        # Dataset bersih hasil pembersihan
-├── arsitektur.png           # Gambar Arsitektur
-├── mongodb_compass.png      # Gambar MongoDB Compass
-├── diagram_fungsional.png   # Gambar Diagram Fungsional
-├── powerbi_dashboard.png    # Gambar Dashboard Power BI
-├── ui_canva.png             # Gambar UI Canva
 └── README.md                # Dokumentasi proyek
 
 
 💻 Penjelasan Skrip Python
 1. database_connector.py
-Skrip penghubung (konektor) antara Python dengan database MongoDB lokal.
+Skrip penghubung (konektor) antara Python dengan database MongoDB lokal[cite: 2].
 
 Python
 from pymongo import MongoClient
@@ -119,7 +135,7 @@ def save_data(collection_name, data):
         collection.insert_many(data)
         print(f"Berhasil menyimpan {len(data)} data ke: {collection_name}")
 2. crawling_gojek.py
-Skrip ekstraksi data ulasan dari Google Play Store secara otomatis menggunakan batching 1.000 data.
+Skrip ekstraksi data ulasan dari Google Play Store secara otomatis menggunakan batching 1.000 data[cite: 2].
 
 Python
 from google_play_scraper import reviews, Sort
@@ -158,7 +174,7 @@ for i in range(0, total_target, batch_size):
 
 print("Proses Ingestion 50.000 data selesai!")
 3. data_processor.py
-Skrip pembersihan (Data Cleaning) untuk menghapus ulasan kosong (dropna), menghapus duplikasi berdasarkan reviewId (drop_duplicates), serta mengekspor hasil ke cleaning_data.csv.
+Skrip pembersihan (Data Cleaning) untuk menghapus ulasan kosong (dropna), menghapus duplikasi berdasarkan reviewId (drop_duplicates), serta mengekspor hasil ke cleaning_data.csv[cite: 2].
 
 Python
 import pandas as pd
@@ -207,4 +223,4 @@ Jalankan Proses Data Cleaning:
 
 Bash
 python data_processor.py
-```
+
