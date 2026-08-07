@@ -27,16 +27,21 @@ Proyek analisis **Big Data Management** yang berfokus pada perancangan arsitektu
 ### 1. Rancangan Arsitektur Big Data
 
 ![Rancangan Arsitektur Big Data Management](arsitektur.png)
+<img width="630" height="762" alt="image" src="https://github.com/user-attachments/assets/2b3cf8ef-3a07-4e5e-a5ad-f705f8ed0245" />
 _Gambar 1: Rancangan Arsitektur Big Data Management_
 
 ### 2. Pengecekan Data pada MongoDB Compass
 
 ![Memasukan File CSV Clean ke MongoDb](mongodb_compass.png)
+<img width="902" height="901" alt="image" src="https://github.com/user-attachments/assets/75d4755b-e044-4b81-bb80-c21359697fca" />
+
 _Gambar 2: Verifikasi 50.000 Data Bersih di MongoDB Compass_
 
 ### 3. Diagram Fungsional Big Data
 
 ![Diagram Fungsional Big Data Management](diagram_fungsional.png)
+<img width="485" height="779" alt="image" src="https://github.com/user-attachments/assets/7e4ad147-cb9e-4e03-b1ed-84092e79a920" />
+
 _Gambar 3: Diagram Fungsional Big Data Management (Konsep 5V)_
 
 ---
@@ -44,6 +49,8 @@ _Gambar 3: Diagram Fungsional Big Data Management (Konsep 5V)_
 ## 📊 Analisis & Visualisasi Data (Power BI)
 
 ![Dashboard Analisis Power BI](powerbi_dashboard.png)
+<img width="976" height="627" alt="image" src="https://github.com/user-attachments/assets/08fbb985-0a68-4014-b09a-5dc3be833d18" />
+
 _Gambar 4: Dasbor Analisis Keseluruhan pada Power BI_
 
 **Fokus Analisis:**
@@ -60,6 +67,8 @@ _Gambar 4: Dasbor Analisis Keseluruhan pada Power BI_
 ## 🎨 Rancangan Tampilan Antarmuka (UI Dashboard Canva)
 
 ![Rancangan Tampilan UI Dashboard](ui_canva.png)
+<img width="1018" height="644" alt="image" src="https://github.com/user-attachments/assets/fbd6069c-ecea-4932-bef8-04c959c9f0bf" />
+
 _Gambar 5: Rancangan Tampilan Antarmuka (UI) Dashboard Analisis Ulasan Pengguna Gojek_
 
 🔗 **[Lihat Desain UI Dashboard Interaktif di Canva](https://canva.link/fiwt54ckqc642mh)**
