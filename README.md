@@ -57,7 +57,7 @@ Proyek analisis **Big Data Management** yang berfokus pada perancangan arsitektu
 
 <div align="center">
   <img width="485" alt="Diagram Fungsional Big Data Management" src="https://github.com/user-attachments/assets/7e4ad147-cb9e-4e03-b1ed-84092e79a920" />
-  <p><i>Gambar 3: Diagram Fungsional Big Data Management (Konsep 5V)</i></p>
+  <p><i>Gambar 3: Diagram Fungsional Big Data Management </i></p>
 </div>
 
 **Tahapan Fungsi Sistem:**
